@@ -51,21 +51,34 @@ inputAdd.addEventListener('click', () => {
         HTMLElement.innerHTML = generateHTML(book);
         booksSection.appendChild(HTMLElement);
     });
-});
 
-// Remove the books
-
-removeBook.addEventListener('click', function () {
     var anchors = document.querySelectorAll('.remove-book');
     for (var i = 0; i < anchors.length; i++) {
         var anchor = anchors[i];
         anchor.onclick = function () {
-            var x = document.anchor.id;
-            const bookRemove = x.replace(/\D/g, '');
+            var x = anchor.id;
+            var bookRemove = x.replace(/\D/g, '');
             listBooks.splice((parseInt(bookRemove) - 1), 1);
+            console.log(listBooks);
         };
     };
 });
+
+// Remove the books
+
+// const removeBook = document.querySelector('')
+
+// removeBook.addEventListener('click', function () {
+//     var anchors = document.querySelectorAll('.remove-book');
+//     for (var i = 0; i < anchors.length; i++) {
+//         var anchor = anchors[i];
+//         anchor.onclick = function () {
+//             var x = document.anchor.id;
+//             const bookRemove = x.replace(/\D/g, '');
+//             listBooks.splice((parseInt(bookRemove) - 1), 1);
+//         };
+//     };
+// });
 
 
 // for (let i = 0; i< listBooks.length; i += 1) {
@@ -76,6 +89,8 @@ removeBook.addEventListener('click', function () {
 // }
 
 // console.log(listBooks);
+
+
 
 
 
