@@ -36,8 +36,8 @@ function generateHTML(details) {
 
 // Function to create object
 inputAdd.addEventListener('click', () => {
-//   book1Title.textContent = inputTitle.value;
-//     book1Author.textContent = inputAuthor.value;
+    //   book1Title.textContent = inputTitle.value;
+    //     book1Author.textContent = inputAuthor.value;
     const addedBook = Object.create(book1);
     addedBook.title = inputTitle.value;
     addedBook.author = inputAuthor.value;
@@ -45,24 +45,37 @@ inputAdd.addEventListener('click', () => {
     listBooks.push(addedBook);
     console.log(listBooks);
     const arrayBook = [addedBook];
-      // eslint-disable-next-line array-callback-return
+    // eslint-disable-next-line array-callback-return
     arrayBook.map((book) => {
         const HTMLElement = document.createElement('div');
         HTMLElement.innerHTML = generateHTML(book);
         booksSection.appendChild(HTMLElement);
     });
-})
+});
 
 // Remove the books
 
-for (let i = 0; i< listBooks.length; i += 1) {
-  const removeBook = document.querySelector(`.book${i+1}-remove`);
-  removeBook.addEventListener('click', () => {
-    listBooks.splice(i,1)
-  })
-}
+removeBook.addEventListener('click', function () {
+    var anchors = document.querySelectorAll('.remove-book');
+    for (var i = 0; i < anchors.length; i++) {
+        var anchor = anchors[i];
+        anchor.onclick = function () {
+            var x = document.anchor.id;
+            const bookRemove = x.replace(/\D/g, '');
+            listBooks.splice((parseInt(bookRemove) - 1), 1);
+        };
+    };
+});
 
-console.log(listBooks);
+
+// for (let i = 0; i< listBooks.length; i += 1) {
+//   const removeBook = document.querySelector(`.book${i+1}-remove`);
+//   removeBook.addEventListener('click', () => {
+//     listBooks.splice(i,1)
+//   })
+// }
+
+// console.log(listBooks);
 
 
 
