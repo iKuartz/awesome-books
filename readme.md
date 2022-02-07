@@ -31,7 +31,7 @@ Basic UI
     To debug your application, you can use console.log(). Remember to remove debugging code before pushing your code to the remote repository.
     Don't use any library or framework, use only plain JavaScript.
 
-TIP: If you separated the code in multiple files and you you have the following issues with the linter: complaining about having multiple classes at the same file, or an unused variables, disable the linter check for that rule in the file with a /* eslint-disable rule-you-want-to-disable */ .
+TIP: If you separated the code in multiple files and you you have the following issues with the linter: complaining about having multiple classes at the same file, or an unused variables, disable the linter check for that rule in the file with a /_ eslint-disable rule-you-want-to-disable _/ .
 
 Check the ESLint documentation for more details on how.
 
@@ -46,14 +46,13 @@ Check the ESLint documentation for more details on how.
 
 [Live Demo Link](https://ikuartz.github.io/awesome-books)
 
-
 ## Authors
 
 👤 **Yersel Hurtado**
 
 - GitHub: [@yersel500](https://github.com/yersel500/)
-- Twitter: [@iKuartz01](https://twitter.com/iKuartz01)
-- LinkedIn: [Ivan Silva](https://www.linkedin.com/in/ivan-silva-a47058b3/)
+- Twitter: [@YerselHurtado](https://twitter.com/YerselHurtado)
+- LinkedIn: [Yersel Hurtado](https://www.linkedin.com/in/yersel-hurtado/)
 
 👤 **Ivan Silva**
 
