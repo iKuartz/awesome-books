@@ -2,7 +2,7 @@
 const book1 = { title: 'first book', author: 'first author', id: 1 }
 
 // Create a collection that keeps a list of books (hint: you can use an array of objects for that).
-const listBooks = [];
+var listBooks = [];
 
 function BookConstructor(title, author, id) {
 this.title = title;
@@ -51,20 +51,28 @@ inputAdd.addEventListener('click', () => {
         HTMLElement.innerHTML = generateHTML(book);
         booksSection.appendChild(HTMLElement);
     });
-
-    var anchors = document.querySelectorAll('.remove-book');
-    for (var i = 0; i < anchors.length; i++) {
-        var anchor = anchors[i];
-        anchor.onclick = function () {
-            var x = anchor.id;
-            var bookRemove = x.replace(/\D/g, '');
-            listBooks.splice((parseInt(bookRemove) - 1), 1);
-            console.log(listBooks);
-        };
-    };
 });
 
 // Remove the books
+
+    // var anchors = document.querySelectorAll('.remove-book');
+    // for (var i = 0; i < anchors.length; i++) {
+    //     var anchor = anchors[i];
+    //     anchor.onclick = function () {
+    //         var x = anchor.id;
+    //         var bookRemove = x.replace(/\D/g, '');
+    //         listBooks = listBooks.filter(book => book.id != bookRemove);
+    //         console.log(listBooks);
+    //     };
+    // };
+
+const bookList = document.querySelector('#booklist');
+bookList.addEventListener('click', (e) => {
+    let deleteBook = e.target.getAttribute('id');
+    deleteBook = parseInt(deleteBook.replace(/\D/g, ''));
+    listBooks = listBooks.filter(book => book.id != deleteBook);
+    console.log(listBooks, deleteBook);
+});
 
 // const removeBook = document.querySelector('')
 
