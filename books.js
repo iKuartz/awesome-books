@@ -28,7 +28,7 @@ function generateHTML(details) {
         <div id="book${details.id}">
             <p id="book${details.id}-title">${details.title}</p>
             <p id="book${details.id}-author">${details.author}</p>
-            <button id="book${details.id}-remove">Remove</button>
+            <button id="book${details.id}-remove" class='remove-book'>Remove</button>
         </div>
       `;
   return template;
@@ -53,6 +53,16 @@ inputAdd.addEventListener('click', () => {
     });
 })
 
+// Remove the books
+
+for (let i = 0; i< listBooks.length; i += 1) {
+  const removeBook = document.querySelector(`.book${i+1}-remove`);
+  removeBook.addEventListener('click', () => {
+    listBooks.splice(i,1)
+  })
+}
+
+console.log(listBooks);
 
 
 
