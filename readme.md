@@ -23,9 +23,9 @@
 
 ## Authors
 
-👤 **Yersel Cordova**
+👤 **Yersel Hurtado**
 
-- GitHub: [@iKuartz](https://github.com/iKuartz/)
+- GitHub: [@yersel500](https://github.com/yersel500/)
 - Twitter: [@iKuartz01](https://twitter.com/iKuartz01)
 - LinkedIn: [Ivan Silva](https://www.linkedin.com/in/ivan-silva-a47058b3/)
 
