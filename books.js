@@ -25,13 +25,15 @@ class ReplaceBooks {
       localStorage.setItem('listBooks', JSON.stringify(listBooks));
     }
     deleteBook(deleteBook) {
-    listBooks = listBooks.filter(book => book.id !== deleteBook)
-    booksSection.innerHTML = ''
-    listBooks.forEach((book) => {
-    const HTMLElement = document.createElement('div')
-    HTMLElement.innerHTML = generateHTML(book)
-    booksSection.appendChild(HTMLElement)
-  })
+      listBooks = listBooks.filter(book => book.id !== deleteBook)
+      booksSection.innerHTML = ''
+      listBooks.forEach((book) => {
+      const HTMLElement = document.createElement('div')
+      HTMLElement.innerHTML = generateHTML(book)
+      booksSection.appendChild(HTMLElement)
+      })
+      //Updating local storage for books
+      localStorage.setItem('listBooks', JSON.stringify(listBooks));
     }
 }
     // don't forget to check if empty books are not being added to list
@@ -48,41 +50,37 @@ function generateHTML (details) {
 return template
 }
 
-  // Updating local storage for books
-//   localStorage.setItem('listBooks', JSON.stringify(listBooks))
-// })
+// Data is preserved in localStorage
+window.onload = function storeData() {
+      // Mantain data on the form
+    let dataStored = {}
+    inputTitle.addEventListener('change', (event) => {
+    dataStored = { ...dataStored, inputTitle: event.target.value }
+    localStorage.setItem('dataStored', JSON.stringify(dataStored))
+  })
 
-// // Data is preserved in localStorage
-// window.onload = function storeData() {
-//       // Mantain data on the form
-//     let dataStored = {}
-//     inputTitle.addEventListener('change', (event) => {
-//     dataStored = { ...dataStored, inputTitle: event.target.value }
-//     localStorage.setItem('dataStored', JSON.stringify(dataStored))
-//   })
+  inputAuthor.addEventListener('change', (event) => {
+    dataStored = { ...dataStored, inputAuthor: event.target.value }
+    localStorage.setItem('dataStored', JSON.stringify(dataStored))
+  })
 
-//   inputAuthor.addEventListener('change', (event) => {
-//     dataStored = { ...dataStored, inputAuthor: event.target.value }
-//     localStorage.setItem('dataStored', JSON.stringify(dataStored))
-//   })
+  if (localStorage.getItem('dataStored')) {
+    dataStored = JSON.parse(localStorage.getItem('dataStored'))
 
-//   if (localStorage.getItem('dataStored')) {
-//     dataStored = JSON.parse(localStorage.getItem('dataStored'))
+    inputTitle.value = dataStored.inputTitle
+    inputAuthor.value = dataStored.inputAuthor
+  }
 
-//     inputTitle.value = dataStored.inputTitle
-//     inputAuthor.value = dataStored.inputAuthor
-//   }
-
-//   // Mantain data on the book container
-//   if (localStorage.getItem('listBooks')) {
-//     listBooks = JSON.parse(localStorage.getItem('listBooks'))
-//     listBooks.forEach((book) => {
-//       const HTMLElement = document.createElement('div')
-//       HTMLElement.innerHTML = generateHTML(book)
-//       booksSection.appendChild(HTMLElement)
-//     })
-//   }
-// }
+  // Mantain data on the book container
+  if (localStorage.getItem('listBooks')) {
+    listBooks = JSON.parse(localStorage.getItem('listBooks'))
+    listBooks.forEach((book) => {
+      const HTMLElement = document.createElement('div')
+      HTMLElement.innerHTML = generateHTML(book)
+      booksSection.appendChild(HTMLElement)
+    })
+  }
+}
 
 
 const bookList = document.querySelector('#booklist')
