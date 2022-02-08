@@ -4,6 +4,8 @@ const inputAuthor = document.querySelector('#input-author')
 const inputAdd = document.querySelector('#input-add')
 const booksSection = document.querySelector('#booklist')
 
+const book1 = { title: 'first book', author: 'first author', id: 1 }
+
 // Create a collection that keeps a list of books (hint: you can use an array of objects for that).
 let listBooks = []
 class ReplaceBooks {
@@ -12,14 +14,15 @@ class ReplaceBooks {
             this.author = author,
             this.id = id
     }
-    addBook(newbook) {
-        listBooks = [...listBooks, newbook]
-        booksSection.innerHTML = ''
-  listBooks.forEach((book) => {
-    const HTMLElement = document.createElement('div')
-    HTMLElement.innerHTML = generateHTML(book)
-    booksSection.appendChild(HTMLElement)
-  })
+    addBook() {
+      booksSection.innerHTML = '';
+      listBooks.map((book) => {
+      const HTMLElement = document.createElement('div');
+      HTMLElement.innerHTML = generateHTML(book);
+      booksSection.appendChild(HTMLElement);
+      });
+      // Updating local storage for books
+      localStorage.setItem('listBooks', JSON.stringify(listBooks));
     }
     deleteBook(deleteBook) {
     listBooks = listBooks.filter(book => book.id !== deleteBook)
@@ -32,72 +35,71 @@ class ReplaceBooks {
     }
 }
     // don't forget to check if empty books are not being added to list
-let book1 = new ReplaceBooks();
-let book2 = new ReplaceBooks();
 
+const book2 = new ReplaceBooks();
 
 function generateHTML (details) {
   const template = `
-        <div id="book${details.id}">
-            <p id="book${details.id}-title">${details.title}</p>
-            <p id="book${details.id}-author">${details.author}</p>
-            <button id="book${details.id}-remove" class='remove-book'>Remove</button>
-        </div>
-    `
-  return template
+  <div id="book${details.id}">
+      <p id="book${details.id}-details">${details.title} by ${details.author}</p>
+      <button id="book${details.id}-remove" class='remove-book'>Remove</button>
+  </div>
+`
+return template
 }
 
   // Updating local storage for books
 //   localStorage.setItem('listBooks', JSON.stringify(listBooks))
 // })
 
-// Data is preserved in localStorage
-window.onload = function storeData() {
-      // Mantain data on the form
-    let dataStored = {}
-    inputTitle.addEventListener('change', (event) => {
-    dataStored = { ...dataStored, inputTitle: event.target.value }
-    localStorage.setItem('dataStored', JSON.stringify(dataStored))
-  })
+// // Data is preserved in localStorage
+// window.onload = function storeData() {
+//       // Mantain data on the form
+//     let dataStored = {}
+//     inputTitle.addEventListener('change', (event) => {
+//     dataStored = { ...dataStored, inputTitle: event.target.value }
+//     localStorage.setItem('dataStored', JSON.stringify(dataStored))
+//   })
 
-  inputAuthor.addEventListener('change', (event) => {
-    dataStored = { ...dataStored, inputAuthor: event.target.value }
-    localStorage.setItem('dataStored', JSON.stringify(dataStored))
-  })
+//   inputAuthor.addEventListener('change', (event) => {
+//     dataStored = { ...dataStored, inputAuthor: event.target.value }
+//     localStorage.setItem('dataStored', JSON.stringify(dataStored))
+//   })
 
-  if (localStorage.getItem('dataStored')) {
-    dataStored = JSON.parse(localStorage.getItem('dataStored'))
+//   if (localStorage.getItem('dataStored')) {
+//     dataStored = JSON.parse(localStorage.getItem('dataStored'))
 
-    inputTitle.value = dataStored.inputTitle
-    inputAuthor.value = dataStored.inputAuthor
-  }
+//     inputTitle.value = dataStored.inputTitle
+//     inputAuthor.value = dataStored.inputAuthor
+//   }
 
-  // Mantain data on the book container
-  if (localStorage.getItem('listBooks')) {
-    listBooks = JSON.parse(localStorage.getItem('listBooks'))
-    listBooks.forEach((book) => {
-      const HTMLElement = document.createElement('div')
-      HTMLElement.innerHTML = generateHTML(book)
-      booksSection.appendChild(HTMLElement)
-    })
-  }
-}
+//   // Mantain data on the book container
+//   if (localStorage.getItem('listBooks')) {
+//     listBooks = JSON.parse(localStorage.getItem('listBooks'))
+//     listBooks.forEach((book) => {
+//       const HTMLElement = document.createElement('div')
+//       HTMLElement.innerHTML = generateHTML(book)
+//       booksSection.appendChild(HTMLElement)
+//     })
+//   }
+// }
 
+
+const bookList = document.querySelector('#booklist')
 
 // Function to create object
 inputAdd.addEventListener('click', () => {
-    book2.title = inputTitle.value
-    book2.author = inputAuthor.value
-    book2.id = listBooks.length + 1
-    console.log(book1);
-    book1.addBook(book2)
-    console.log(listBooks)
+  const book3 = new ReplaceBooks();
+  book3.title = inputTitle.value;
+  book3.author = inputAuthor.value;
+  book3.id = listBooks.length + 1;
+  listBooks.push(book3);
+  book3.addBook();
 })
 
 // Removing books
-const bookList = document.querySelector('#booklist')
 bookList.addEventListener('click', (e) => {
     let deleteBook = e.target.getAttribute('id')
     deleteBook = parseInt(deleteBook.replace(/\D/g, ''), 10)
-    book1.deleteBook(deleteBook)
+    book2.deleteBook(deleteBook)
 })
