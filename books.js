@@ -12,8 +12,8 @@ class ReplaceBooks {
             this.author = author,
             this.id = id
     }
-    addBook(book1) {
-        listBooks = [...listBooks, book1]
+    addBook(newbook) {
+        listBooks = [...listBooks, newbook]
         booksSection.innerHTML = ''
   listBooks.forEach((book) => {
     const HTMLElement = document.createElement('div')
@@ -33,6 +33,7 @@ class ReplaceBooks {
 }
     // don't forget to check if empty books are not being added to list
 let book1 = new ReplaceBooks();
+let book2 = new ReplaceBooks();
 
 
 function generateHTML (details) {
@@ -85,10 +86,12 @@ window.onload = function storeData() {
 
 // Function to create object
 inputAdd.addEventListener('click', () => {
-    book1.title = inputTitle.value
-    book1.author = inputAuthor.value
-    book1.id = listBooks.length + 1
-    book1.addBook(book1)
+    book2.title = inputTitle.value
+    book2.author = inputAuthor.value
+    book2.id = listBooks.length + 1
+    console.log(book1);
+    book1.addBook(book2)
+    console.log(listBooks)
 })
 
 // Removing books
