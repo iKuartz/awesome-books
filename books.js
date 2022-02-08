@@ -7,8 +7,6 @@ let listBooks = []
 // Collecting information from inputs
 const inputTitle = document.querySelector('#input-title')
 const inputAuthor = document.querySelector('#input-author')
-// const book1Title = document.querySelector('#book1-title')
-// const book1Author = document.querySelector('#book1-author')
 const inputAdd = document.querySelector('#input-add')
 
 const booksSection = document.querySelector('#booklist')
@@ -24,11 +22,10 @@ function generateHTML (details) {
       `
   return template
 }
+/* eslint-enable no-tabs */
 
 // Function to create object
 inputAdd.addEventListener('click', () => {
-  //   book1Title.textContent = inputTitle.value;
-  //     book1Author.textContent = inputAuthor.value;
   const addedBook = Object.create(book1)
   addedBook.title = inputTitle.value
   addedBook.author = inputAuthor.value
