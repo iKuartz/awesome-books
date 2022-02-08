@@ -4,15 +4,6 @@ const book1 = { title: 'first book', author: 'first author', id: 1 }
 // Create a collection that keeps a list of books (hint: you can use an array of objects for that).
 var listBooks = [];
 
-function BookConstructor(title, author, id) {
-this.title = title;
-this.author = author;
-this.id = id;
-}
-
-const listAutomatic1 = new BookConstructor('My first book', 'first author', 1);
-console.log(listAutomatic1);
-
 // Collecting information from inputs
 const inputTitle = document.querySelector('#input-title');
 const inputAuthor = document.querySelector('#input-author');
@@ -43,60 +34,66 @@ inputAdd.addEventListener('click', () => {
     addedBook.author = inputAuthor.value;
     addedBook.id = listBooks.length + 1;
     listBooks.push(addedBook);
-    console.log(listBooks);
-    const arrayBook = [addedBook];
-    // eslint-disable-next-line array-callback-return
-    arrayBook.map((book) => {
+    booksSection.innerHTML = '';
+    listBooks.map((book) => {
         const HTMLElement = document.createElement('div');
         HTMLElement.innerHTML = generateHTML(book);
         booksSection.appendChild(HTMLElement);
     });
+    // Updating local storage for books
+    localStorage.setItem('listBooks', JSON.stringify(listBooks));
 });
 
-// Remove the books
-
-    // var anchors = document.querySelectorAll('.remove-book');
-    // for (var i = 0; i < anchors.length; i++) {
-    //     var anchor = anchors[i];
-    //     anchor.onclick = function () {
-    //         var x = anchor.id;
-    //         var bookRemove = x.replace(/\D/g, '');
-    //         listBooks = listBooks.filter(book => book.id != bookRemove);
-    //         console.log(listBooks);
-    //     };
-    // };
-
+//Removing books
 const bookList = document.querySelector('#booklist');
 bookList.addEventListener('click', (e) => {
     let deleteBook = e.target.getAttribute('id');
     deleteBook = parseInt(deleteBook.replace(/\D/g, ''));
     listBooks = listBooks.filter(book => book.id != deleteBook);
-    console.log(listBooks, deleteBook);
+    booksSection.innerHTML = '';
+    listBooks.map((book) => {
+        const HTMLElement = document.createElement('div');
+        HTMLElement.innerHTML = generateHTML(book);
+        booksSection.appendChild(HTMLElement);
+    });
+    //Updating local storage for books
+    localStorage.setItem('listBooks', JSON.stringify(listBooks));
 });
 
-// const removeBook = document.querySelector('')
+// Data is preserved in localStorage
+window.onload = function storeData() {
+    // Mantain data on the form
+    let dataStored = {};
+  
+    inputTitle.addEventListener('change', (event) => {    
+      dataStored = { ...dataStored, inputTitle: event.target.value };
+      localStorage.setItem('dataStored', JSON.stringify(dataStored));
+    });
+  
+    inputAuthor.addEventListener('change', (event) => {    
+      dataStored = { ...dataStored, inputAuthor: event.target.value };
+      localStorage.setItem('dataStored', JSON.stringify(dataStored));
+    });
+   
+    if (localStorage.getItem('dataStored')) {
+      dataStored = JSON.parse(localStorage.getItem('dataStored'));
+  
+      inputTitle.value = dataStored.inputTitle;
+      inputAuthor.value = dataStored.inputAuthor;
+    }
 
-// removeBook.addEventListener('click', function () {
-//     var anchors = document.querySelectorAll('.remove-book');
-//     for (var i = 0; i < anchors.length; i++) {
-//         var anchor = anchors[i];
-//         anchor.onclick = function () {
-//             var x = document.anchor.id;
-//             const bookRemove = x.replace(/\D/g, '');
-//             listBooks.splice((parseInt(bookRemove) - 1), 1);
-//         };
-//     };
-// });
-
-
-// for (let i = 0; i< listBooks.length; i += 1) {
-//   const removeBook = document.querySelector(`.book${i+1}-remove`);
-//   removeBook.addEventListener('click', () => {
-//     listBooks.splice(i,1)
-//   })
-// }
-
-// console.log(listBooks);
+    //Mantain data on the book container
+    if (localStorage.getItem('listBooks')) {
+        listBooks = JSON.parse(localStorage.getItem('listBooks'));
+        listBooks.map((book) => {
+            const HTMLElement = document.createElement('div');
+            HTMLElement.innerHTML = generateHTML(book);
+            booksSection.appendChild(HTMLElement);
+        });
+     
+      }
+  
+  }
 
 
 
