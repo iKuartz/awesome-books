@@ -35,6 +35,22 @@ TIP: If you separated the code in multiple files and you you have the following 
 
 Check the ESLint documentation for more details on how.
 
+### Second requirements:
+
+> Use JavaScript classes instead of objects and arrays.
+
+    You can use objects and arrays, but do it inside classes.
+    Create class methods to add and remove books.
+    Maintain all of the original functionality of the application (i.e. no bugs were introduced while refactoring).
+    Don't use any library or framework, use only plain JavaScript.
+    Add CSS styles to the application to make it match the wireframe proposed by Microverse
+
+Basic UI
+
+    You can use the styles of your choice (colors, fonts, backgrounds, etc.), but try to follow the general layout.
+    Concentrate on the general layout, rather than the details.
+
+
 ## Built With
 
 - HTML
