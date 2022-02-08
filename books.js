@@ -1,15 +1,38 @@
-
-const book1 = { title: 'first book', author: 'first author', id: 1 }
-
-// Create a collection that keeps a list of books (hint: you can use an array of objects for that).
-let listBooks = []
-
 // Collecting information from inputs
 const inputTitle = document.querySelector('#input-title')
 const inputAuthor = document.querySelector('#input-author')
 const inputAdd = document.querySelector('#input-add')
-
 const booksSection = document.querySelector('#booklist')
+
+// Create a collection that keeps a list of books (hint: you can use an array of objects for that).
+let listBooks = []
+class ReplaceBooks {
+    replacebooks(title, author, id) {
+            this.title = title,
+            this.author = author,
+            this.id = id
+    }
+    addBook(book1) {
+        listBooks = [...listBooks, book1]
+        booksSection.innerHTML = ''
+  listBooks.forEach((book) => {
+    const HTMLElement = document.createElement('div')
+    HTMLElement.innerHTML = generateHTML(book)
+    booksSection.appendChild(HTMLElement)
+  })
+    }
+    deleteBook(deleteBook) {
+    listBooks = listBooks.filter(book => book.id !== deleteBook)
+    booksSection.innerHTML = ''
+    listBooks.forEach((book) => {
+    const HTMLElement = document.createElement('div')
+    HTMLElement.innerHTML = generateHTML(book)
+    booksSection.appendChild(HTMLElement)
+  })
+    }
+}
+    // don't forget to check if empty books are not being added to list
+let book1 = new ReplaceBooks();
 
 
 function generateHTML (details) {
@@ -23,46 +46,15 @@ function generateHTML (details) {
   return template
 }
 
-
-// Function to create object
-inputAdd.addEventListener('click', () => {
-  const addedBook = Object.create(book1)
-  addedBook.title = inputTitle.value
-  addedBook.author = inputAuthor.value
-  addedBook.id = listBooks.length + 1
-  listBooks.push(addedBook)
-  booksSection.innerHTML = ''
-  listBooks.forEach((book) => {
-    const HTMLElement = document.createElement('div')
-    HTMLElement.innerHTML = generateHTML(book)
-    booksSection.appendChild(HTMLElement)
-  })
   // Updating local storage for books
-  localStorage.setItem('listBooks', JSON.stringify(listBooks))
-})
-
-// Removing books
-const bookList = document.querySelector('#booklist')
-bookList.addEventListener('click', (e) => {
-  let deleteBook = e.target.getAttribute('id')
-  deleteBook = parseInt(deleteBook.replace(/\D/g, ''), 10)
-  listBooks = listBooks.filter(book => book.id !== deleteBook)
-  booksSection.innerHTML = ''
-  listBooks.forEach((book) => {
-    const HTMLElement = document.createElement('div')
-    HTMLElement.innerHTML = generateHTML(book)
-    booksSection.appendChild(HTMLElement)
-  })
-  // Updating local storage for books
-  localStorage.setItem('listBooks', JSON.stringify(listBooks))
-})
+//   localStorage.setItem('listBooks', JSON.stringify(listBooks))
+// })
 
 // Data is preserved in localStorage
-window.onload = function storeData () {
-  // Mantain data on the form
-  let dataStored = {}
-
-  inputTitle.addEventListener('change', (event) => {
+window.onload = function storeData() {
+      // Mantain data on the form
+    let dataStored = {}
+    inputTitle.addEventListener('change', (event) => {
     dataStored = { ...dataStored, inputTitle: event.target.value }
     localStorage.setItem('dataStored', JSON.stringify(dataStored))
   })
@@ -89,3 +81,20 @@ window.onload = function storeData () {
     })
   }
 }
+
+
+// Function to create object
+inputAdd.addEventListener('click', () => {
+    book1.title = inputTitle.value
+    book1.author = inputAuthor.value
+    book1.id = listBooks.length + 1
+    book1.addBook(book1)
+})
+
+// Removing books
+const bookList = document.querySelector('#booklist')
+bookList.addEventListener('click', (e) => {
+    let deleteBook = e.target.getAttribute('id')
+    deleteBook = parseInt(deleteBook.replace(/\D/g, ''), 10)
+    book1.deleteBook(deleteBook)
+})
