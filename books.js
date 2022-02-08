@@ -11,7 +11,7 @@ const inputAdd = document.querySelector('#input-add')
 
 const booksSection = document.querySelector('#booklist')
 
-/* eslint-disable no-tabs */
+
 function generateHTML (details) {
   const template = `
         <div id="book${details.id}">
@@ -19,10 +19,10 @@ function generateHTML (details) {
             <p id="book${details.id}-author">${details.author}</p>
             <button id="book${details.id}-remove" class='remove-book'>Remove</button>
         </div>
-      `
+    `
   return template
 }
-/* eslint-enable no-tabs */
+
 
 // Function to create object
 inputAdd.addEventListener('click', () => {
