@@ -48,7 +48,7 @@ inputAdd.addEventListener('click', () => {
 const bookList = document.querySelector('#booklist')
 bookList.addEventListener('click', (e) => {
   let deleteBook = e.target.getAttribute('id')
-  deleteBook = parseInt(deleteBook.replace(/\D/g, ''))
+  deleteBook = parseInt(deleteBook.replace(/\D/g, ''), 10)
   listBooks = listBooks.filter(book => book.id !== deleteBook)
   booksSection.innerHTML = ''
   listBooks.forEach((book) => {
