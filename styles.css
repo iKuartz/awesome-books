@@ -16,7 +16,7 @@ header {
   justify-content: space-between;
 }
 
-.navbar > h1 {
+.navbar > h2 {
   margin: auto 0 auto 2%;
 }
 
@@ -72,6 +72,10 @@ a:disabled {
   width: 100%;
 }
 
+#booklist>div:nth-child(odd){
+  background-color: lightgrey;
+}
+
 #booklist > div > div {
   width: 100%;
   display: flex;
@@ -83,4 +87,10 @@ a:disabled {
 
 #add-book {
   margin-top: 3%;
+}
+
+footer {
+  border: solid 2px black;
+  text-align: left;
+  padding-left: 2%;
 }
