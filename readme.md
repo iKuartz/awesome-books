@@ -35,65 +35,6 @@ TIP: If you separated the code in multiple files and you you have the following 
 
 Check the ESLint documentation for more details on how.
 
-> To setup the project on your machine:
-
-## Getting Started
-
-Clone the repository and setup the linter
-
-## Prerequisites
-
-- npm ( Node Package Manager )
-- git and Github Account
-
-### Setup
-
-To get a local copy up and running follow these simple example steps.
-
-- Open terminal
-- Change the directory you want put the repo
-- Then run
-  i. Run git clone git@github.com:mengiefen/awesome-books.git
-  ii. cd repo-name/
-
-### Install
-
-- **Webhint** linter
-
-  `npm install --save-dev hint@6.x`
-
-- **Stylelint** linter
-
-  `npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x`
-
-- **ESLint** linter
-
-  `npm install --save-dev eslint@7.x eslint-config-airbnb-base@14.x eslint-plugin-import@2.x babel-eslint@10.x`
-
-### Run tests
-
-- **Webhint** linter -`npx hint .` on the root of your directory of your project.
-- **Stylelint** linter
-  - `npx stylelint "**/*.{css,scss}"` on the root of your directory of your project.
-- **ESLint** linter
-  - `npx eslint .` on the root of your directory of your project.
-
-### Second requirements:
-
-> Use JavaScript classes instead of objects and arrays.
-
-    You can use objects and arrays, but do it inside classes.
-    Create class methods to add and remove books.
-    Maintain all of the original functionality of the application (i.e. no bugs were introduced while refactoring).
-    Don't use any library or framework, use only plain JavaScript.
-    Add CSS styles to the application to make it match the wireframe proposed by Microverse
-
-Basic UI
-
-    You can use the styles of your choice (colors, fonts, backgrounds, etc.), but try to follow the general layout.
-    Concentrate on the general layout, rather than the details.
-
-
 ## Built With
 
 - HTML
@@ -106,12 +47,6 @@ Basic UI
 [Live Demo Link](https://ikuartz.github.io/awesome-books)
 
 ## Authors
-
-👤 **Mengstu Fentaw**
-
-- GitHub: [@mengiefen](https://github.com/mengiefen)
-- Twitter: [@MengistuFentaw](https://twitter.com/MengistuFentaw)
-- Linkedin: [@mengefen](https://www.linkedin.com/in/mengefen/)
 
 👤 **Yersel Hurtado**
 
