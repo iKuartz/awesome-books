@@ -4,7 +4,7 @@ body {
   text-align: center;
   margin: 2%;
   padding: 0;
-  box-sizing: border-box;  
+  box-sizing: border-box;
 }
 
 header {
@@ -16,7 +16,7 @@ header {
   justify-content: space-between;
 }
 
-.navbar>h2 {
+.navbar > h2 {
   margin: auto 0 auto 2%;
 }
 
@@ -26,7 +26,7 @@ header {
   padding-right: 2%;
 }
 
-.menu-list>li {
+.menu-list > li {
   padding-right: 20px;
   padding-left: 20px;
   border-right: solid 2px black;
@@ -34,12 +34,12 @@ header {
   min-width: fit-content;
 }
 
-.menu-list>li:last-child {
+.menu-list > li:last-child {
   border: none;
   padding-right: 0;
 }
 
-.list>a {
+.list > a {
   text-decoration: none;
   color: black;
 }
@@ -58,7 +58,7 @@ a:disabled {
 .date {
   margin: 0;
 }
-#bookshelf{
+#bookshelf {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,28 +73,36 @@ a:disabled {
   max-height: 80vh;
 }
 
-#booklist>div {
+#booklist > div {
   display: flex;
-  width: 100%;
+  width: 90%;
+  padding: 2% 5%;
 }
 
-#booklist>div:nth-child(odd) {
+#booklist > div:nth-child(odd) {
   background-color: lightgrey;
 }
 
-#booklist>div>div {
+#booklist > div > div {
   width: 100%;
   display: flex;
+  align-items: center;
 }
 
 #booklist div button {
   margin-left: auto;
+  padding: 0 0.5rem;
+  height: 2.2rem;
 }
 
-footer {  
+footer {
   border: solid 2px black;
   text-align: left;
   padding-left: 2%;
+  position: absolute;
+  clear: both;
+  bottom: 2%;
+  width: 94%;
 }
 
 #add-book {
@@ -106,12 +114,12 @@ footer {
   width: 50%;
 }
 
-#add-book>input {
+#add-book > input {
   padding: 12px 5px;
   width: 80%;
 }
 
-#add-book>h2 {
+#add-book > h2 {
   margin-bottom: 10%;
 }
 
@@ -139,15 +147,15 @@ footer {
   align-items: center;
 }
 
-#contact-info>h2 {
+#contact-info > h2 {
   margin-bottom: 5%;
 }
 
-.specific-info>li {
+.specific-info > li {
   text-align: start;
   padding-bottom: 5px;
 }
 
-#contact-info>p {
+#contact-info > p {
   padding-bottom: 1.5%;
 }
