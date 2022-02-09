@@ -16,7 +16,7 @@ header {
   justify-content: space-between;
 }
 
-.navbar > h2 {
+.navbar>h2 {
   margin: auto 0 auto 2%;
 }
 
@@ -26,7 +26,7 @@ header {
   padding-right: 2%;
 }
 
-.menu-list > li {
+.menu-list>li {
   padding-right: 20px;
   padding-left: 20px;
   border-right: solid 2px black;
@@ -34,12 +34,12 @@ header {
   min-width: fit-content;
 }
 
-.menu-list > li:last-child {
+.menu-list>li:last-child {
   border: none;
   padding-right: 0;
 }
 
-.list > a {
+.list>a {
   text-decoration: none;
   color: black;
 }
@@ -51,11 +51,11 @@ a:disabled {
   color: blue;
 }
 
-.actual-date{
+.actual-date {
   text-align: right;
 }
 
-.date{
+.date {
   margin: 0;
 }
 
@@ -65,18 +65,19 @@ a:disabled {
   border: solid black 2px;
   width: 50%;
   margin: auto;
+  max-height: 80vh;
 }
 
-#booklist > div {
+#booklist>div {
   display: flex;
   width: 100%;
 }
 
-#booklist>div:nth-child(odd){
+#booklist>div:nth-child(odd) {
   background-color: lightgrey;
 }
 
-#booklist > div > div {
+#booklist>div>div {
   width: 100%;
   display: flex;
 }
@@ -85,12 +86,63 @@ a:disabled {
   margin-left: auto;
 }
 
-#add-book {
-  margin-top: 3%;
-}
-
 footer {
   border: solid 2px black;
   text-align: left;
   padding-left: 2%;
+}
+
+#add-book {
+  margin: 3% auto;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+#add-book>input {
+  padding: 12px 5px;
+  width: 80%;
+}
+
+#add-book>h2 {
+  margin-bottom: 10%;
+}
+
+#input-title {
+  margin-bottom: 16px;
+}
+
+#input-author {
+  margin-bottom: 6px;
+}
+
+#input-add {
+  padding: 12px 4%;
+  width: auto;
+  align-self: flex-end;
+  margin: 12px 9% auto auto;
+}
+
+.contact-info {
+  max-width: 80%;
+  text-align: start;
+  margin: 3% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-info>h2 {
+  margin-bottom: 5%;
+}
+
+.specific-info>li {
+  text-align: start;
+  padding-bottom: 5px;
+}
+
+.contact-info>p {
+  padding-bottom: 1.5%;
 }
