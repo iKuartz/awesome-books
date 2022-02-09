@@ -8,6 +8,7 @@
   <title>Awesome Books</title>
   <link rel="stylesheet" href="./styles.css">
   <script src="./books.js" defer></script>
+  <script src="./nav.js" defer></script>
 </head>
 
 <body>
@@ -15,16 +16,16 @@
     <nav class="navbar">
       <h2>Awesome Books</h2>
       <ul class="menu-list">
-        <li class="list"><a href="#" class="header-links">List</a></li>
-        <li class="list"><a href="#" class="header-links">Add new</a></li>
-        <li class="list last"><a href="#" class="header-links">Contact</a></li>
+        <li class="list"><a href="#bookshelf" class="header-links">List</a></li>
+        <li class="list"><a href="#add-book" class="header-links">Add new</a></li>
+        <li class="list last"><a href="#contact-info" class="header-links">Contact</a></li>
       </ul>
     </nav>
   </header>
   <section class="actual-date">
     <h6 class="date">Here is the date</h6>
   </section>
-  <section class="bookshelf">
+  <section id="bookshelf">
     <h1 class="booklist-h1">All awesome books</h1>
     <div id="booklist">
     </div>
@@ -37,7 +38,7 @@
     <button type="submit" id="input-add">Add</button>
     <!-- Remember to remove the br and style on css -->
   </section>
-  <section class="contact-info">
+  <section id="contact-info">
     <h2>Contact Information</h2>
     <p class="info">
       Do have any questions or you just want to say 'Hello'?

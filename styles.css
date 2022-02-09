@@ -125,7 +125,7 @@ footer {
   margin: 12px 9% auto auto;
 }
 
-.contact-info {
+#contact-info {
   max-width: 80%;
   text-align: start;
   margin: 3% auto;
@@ -134,7 +134,7 @@ footer {
   align-items: center;
 }
 
-.contact-info>h2 {
+#contact-info>h2 {
   margin-bottom: 5%;
 }
 
@@ -143,6 +143,6 @@ footer {
   padding-bottom: 5px;
 }
 
-.contact-info>p {
+#contact-info>p {
   padding-bottom: 1.5%;
 }
