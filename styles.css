@@ -4,7 +4,7 @@ body {
   text-align: center;
   margin: 2%;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box;  
 }
 
 header {
@@ -58,6 +58,11 @@ a:disabled {
 .date {
   margin: 0;
 }
+#bookshelf{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 #booklist {
   display: flex;
@@ -86,7 +91,7 @@ a:disabled {
   margin-left: auto;
 }
 
-footer {
+footer {  
   border: solid 2px black;
   text-align: left;
   padding-left: 2%;
@@ -95,7 +100,7 @@ footer {
 #add-book {
   margin: 3% auto;
   max-height: 80vh;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   width: 50%;
@@ -129,7 +134,7 @@ footer {
   max-width: 80%;
   text-align: start;
   margin: 3% auto;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
 }
