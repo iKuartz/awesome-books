@@ -2,6 +2,61 @@
 body {
   font-family: "Comic Sans MS", sans-serif;
   text-align: center;
+  margin: 2%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  border: solid 2px black;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar > h1 {
+  margin: auto 0 auto 2%;
+}
+
+.menu-list {
+  list-style-type: none;
+  display: flex;
+  padding-right: 2%;
+}
+
+.menu-list > li {
+  padding-right: 20px;
+  padding-left: 20px;
+  border-right: solid 2px black;
+  word-break: keep-all;
+  min-width: fit-content;
+}
+
+.menu-list > li:last-child {
+  border: none;
+  padding-right: 0;
+}
+
+.list > a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover,
+a:active,
+a:visited,
+a:disabled {
+  color: blue;
+}
+
+.actual-date{
+  text-align: right;
+}
+
+.date{
+  margin: 0;
 }
 
 #booklist {
