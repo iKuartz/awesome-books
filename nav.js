@@ -1,11 +1,11 @@
-const bookshelf = document.getElementById('bookshelf')
-const addBook = document.getElementById('add-book')
-const contactInfo = document.getElementById('contact-info')
-const newDate = document.querySelector('.date')
+const bookshelf = document.getElementById('bookshelf');
+const addBook = document.getElementById('add-book');
+const contactInfo = document.getElementById('contact-info');
+const newDate = document.querySelector('.date');
 
-const menuList = document.querySelectorAll('.header-links')
+const menuList = document.querySelectorAll('.header-links');
 
-//Setting the date
+// Setting the date
 const d = new Date();
 newDate.innerHTML = d.toUTCString();
 
@@ -30,5 +30,5 @@ function handleNavigation(index) {
 menuList.forEach((element, index) => {
   element.addEventListener('click', () => {
     handleNavigation(index);
-  })
+  });
 });
